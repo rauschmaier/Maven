@@ -81,4 +81,6 @@ Mockito einrichten: Die Annotationen @Mock und @InjectMocks werden verwendet, um
 1. Tests schreiben: Test für erfolgreichen Zahlungsvorgang: Simuliert einen erfolgreichen Zahlungsvorgang und überprüft, ob die Bestellung erfolgreich abgeschlossen wird.
 2. Test für fehlgeschlagenen Zahlungsvorgang: Soll einen fehlgeschlagenen Zahlungsvorgang simulieren und überprüft, ob die Bestellung nicht abgeschlossen wird.
 
-Implementieren Sie den 2. Test
+#### Ihre Aufgabe:
+1. Binden Sie das Maven projekt in Ihrer IDE ein.
+2. Implementieren Sie den 2. Test
