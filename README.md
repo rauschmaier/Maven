@@ -38,3 +38,47 @@ Maven bietet eine Vielzahl von Plugins, die verschiedene Aufgaben während des B
 - **Konsistenz**: Durch die Standardisierung der Projektstruktur und des Build-Prozesses bietet Maven eine konsistente Arbeitsweise.
 
 Maven ist ein weit verbreitetes Werkzeug in der Java-Entwicklergemeinschaft und bietet zahlreiche Vorteile für die Verwaltung und den Build von Softwareprojekten.
+
+### Integration Tests
+
+**Definition:** 
+Integration Tests überprüfen die Zusammenarbeit mehrerer Komponenten eines Systems. Im Gegensatz zu Unit-Tests, die isoliert einzelne Funktionen testen, konzentrieren sich Integrationstests auf die korrekte Interaktion und Integration der verschiedenen Teile des Systems.
+
+**Ziel:**
+Das Ziel von Integrationstests ist es, sicherzustellen, dass die verschiedenen Module oder Komponenten eines Systems ordnungsgemäß zusammenarbeiten. Sie decken Fehler auf, die durch die Interaktion zwischen Modulen entstehen könnten.
+
+### Einsatz von Mocks in Integration Tests
+
+**Definition:**
+Mocks sind simulierte Objekte, die das Verhalten echter Objekte nachahmen. Sie werden verwendet, um die Abhängigkeiten des zu testenden Codes zu ersetzen, sodass der Test unabhängig und kontrollierbar bleibt.
+
+**Ziel:**
+Der Einsatz von Mocks in Integrationstests kann sinnvoll sein, wenn bestimmte Abhängigkeiten schwer zu steuern sind oder externe Systeme involviert sind, wie z.B. Datenbanken, Webservices oder externe APIs. Mocks helfen dabei, Tests schneller, zuverlässiger und reproduzierbarer zu machen.
+
+**Einsatzmöglichkeiten:**
+
+1. **Isolation von Testfällen:**
+   - Wenn man eine bestimmte Komponente testet, kann man ihre Abhängigkeiten durch Mocks ersetzen, um den Test isoliert und fokussiert zu halten.
+   
+2. **Vermeidung externer Abhängigkeiten:**
+   - Durch das Mocken von externen Systemen (z.B. Datenbanken, Webservices) kann man sicherstellen, dass der Test unabhängig von der Verfügbarkeit und dem Zustand dieser Systeme ist.
+
+3. **Kontrolle über das Verhalten von Abhängigkeiten:**
+   - Man kann das Verhalten von Abhängigkeiten präzise steuern, um bestimmte Szenarien und Randfälle zu testen.
+
+
+## Aufgabe: Integrationstest für OrderService und PaymentService
+
+Ein E-Commerce-System hat zwei Hauptkomponenten:
+- OrderService: Verantwortlich für die Verwaltung von Bestellungen.
+- PaymentService: Verantwortlich für die Abwicklung von Zahlungen.
+
+Wenn eine Bestellung aufgegeben wird, muss der OrderService den PaymentService aufrufen, um die Zahlung zu verarbeiten.
+
+#### Erklärung:
+
+Mockito einrichten: Die Annotationen @Mock und @InjectMocks werden verwendet, um Mock-Objekte zu erstellen und diese in die zu testende Klasse (OrderService) zu injizieren.
+1. Tests schreiben: Test für erfolgreichen Zahlungsvorgang: Simuliert einen erfolgreichen Zahlungsvorgang und überprüft, ob die Bestellung erfolgreich abgeschlossen wird.
+2. Test für fehlgeschlagenen Zahlungsvorgang: Soll einen fehlgeschlagenen Zahlungsvorgang simulieren und überprüft, ob die Bestellung nicht abgeschlossen wird.
+
+Implementieren Sie den 2. Test

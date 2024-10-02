@@ -20,22 +20,22 @@ public class OrderServiceTest {
     @Test
     public void testPlaceOrder_PaymentSuccessful() {
         Order order = new Order(100.0);
+     // Mock the behavior of the paymentService to return true when the processPayment method is called with the order's amount
         when(paymentService.processPayment(order.getAmount())).thenReturn(true);
 
+        // Call the placeOrder method of the orderService with the order object and store the result
         boolean result = orderService.placeOrder(order);
 
+        // Assert that the result of placeOrder is true
         assertTrue(result);
+
+        // Verify that the processPayment method of the paymentService was called exactly once with the order's amount
         verify(paymentService, times(1)).processPayment(order.getAmount());
+
     }
 
     @Test
     public void testPlaceOrder_PaymentFailed() {
-        Order order = new Order(100.0);
-        when(paymentService.processPayment(order.getAmount())).thenReturn(false);
-
-        boolean result = orderService.placeOrder(order);
-
-        assertFalse(result);
-        verify(paymentService, times(1)).processPayment(order.getAmount());
+    	assertTrue(false);
     }
 }
